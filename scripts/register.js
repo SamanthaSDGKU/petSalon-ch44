@@ -1,5 +1,4 @@
 //object literal
-
 let petSalon = {
     name:"The Fashion Pet",
     address:{
@@ -11,39 +10,36 @@ let petSalon = {
         open:"9:00 am",
         close:"8:00 pm"
     },
-    pets:[
-        {
-            name:"Lucas",
-            age:80,
-            gender:"Male",
-            service:"Grooming"
-        },
-        {
-            name:"Scooby",
-            age:70,
-            gender:"Male",
-            service:"Nail cut"
-        },
-        {
-            name:"Tweety",
-            age:79,
-            gender:"Male",
-            service:"Vaccines"
-        }
-    ]
+    pets:[] //array
+}
+//object constructor (function)
+function Pet(name,age,gender,breed){
+    this.name=name;
+    this.age=age;
+    this.gender=gender;
+    this.breed=breed;
 }
 
-console.table(petSalon.pets);
-//displaying names
-console.log(petSalon.pets[0].name);
-console.log(petSalon.pets[1].name);
-console.log(petSalon.pets[2].name);
+function register(){
+    console.log("Registering");
+    //get the values from the inputs
+    let inputName = document.getElementById("txtName").value;
+    let inputAge = document.getElementById("txtAge").value;
+    let inputGender = document.getElementById("txtGender").value;
+    let inputBreed = document.getElementById("txtBreed").value;
+    //creating the obj
+    let newPet = new Pet(inputName,inputAge,inputGender,inputBreed);
+    //push the object
+    petSalon.pets.push(newPet);
+    //display the pets array on the console
+    console.log(petSalon.pets);
+}
 
-// total of elements in the array
-console.log(petSalon.pets.length);
+//creating pets using constructor
+let p1 = new Pet("Scooby",60,"Male","Dane");
+let p2 = new Pet("Scrappy",50,"Male","Mixed");
+let p3 = new Pet("Lucas",70,"Male","Duck");
+//pushing pets into the pets array
+petSalon.pets.push(p1,p2,p3);
 
-// 1. get the values from the prompt
-// 2. convert the values into numbers
-// 3. 
-
-//document.getElementById("title").innerHTML=petSalon.name;
+console.log(petSalon.pets);
